@@ -192,7 +192,9 @@ def lossfun(x, alpha, scale, approximate=False, epsilon=1e-6):
     return loss
 
 
-from pkg_resources import resource_stream
+import importlib
+def resource_stream(package, resource):
+    return importlib.resources.open_binary(package, resource)
 
 
 def interpolate1d(x, values, tangents):
